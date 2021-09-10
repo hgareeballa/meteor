@@ -2,16 +2,19 @@
 
 <script>
     import { TasksCollection } from '../api/TasksCollection';
+    export let user;
 
     let newTask = '';
 
     const handleSubmit = () => {
+        console.log(user);
         // Insert a task into the collection
         TasksCollection.insert({
             text: newTask,
+            userId: user._id,
             createdAt: new Date(), // current time
         });
-
+ 
         // Clear form
         newTask = '';
     }
