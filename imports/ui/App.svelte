@@ -46,16 +46,17 @@
 </script>
 
 <div class="app">
-  <header>
-    <div class="app-bar">
-      <div class="app-header">
-        <h1>📝️ To Do List {pendingTasksTitle}</h1>
-      </div>
-    </div>
-  </header>
+ 
 
   <div class="main">
     {#if user}
+    <header>
+      <div class="app-bar">
+        <div class="app-header">
+          <h1>📝️ To Do List {pendingTasksTitle}</h1>
+        </div>
+      </div>
+    </header>
       <div class="user" on:click={logout}>
         {user.username} 🚪
       </div>
