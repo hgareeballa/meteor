@@ -8,17 +8,6 @@
   const handleSubmit = () => {
     console.log("Login...!");
     message = "...";
-    Meteor.loginWithPassword(username, password, function (err) {  
-    message = "success";
-      if (err) {
-        message = "Invalid User/Pass !";
-      }
-    });
-  };
-
-  const handleRegister = () => {
-    console.log("Register...!");
-    message = "...";
 
     Accounts.createUser({
       username: username,
@@ -26,15 +15,13 @@
     }, function (err){
         if (err){
             alert(err);
-        }else{
-          alert('User Registered Successfully!');
         }
     });
-  }
+  };
 </script>
 
 <form class="login-form" on:submit|preventDefault={handleSubmit}>
-  
+  <div>Register User</div>
   <div>
     <label htmlFor="username">Username</label>
     <input
@@ -57,10 +44,9 @@
     />
   </div>
   <div>
-    <button type="submit">Log In</button>  <button type="Button" on:click={handleRegister}>Register</button> 
+    <button type="submit">Register</button>
   </div>
   <div>
     {message}
   </div>
 </form>
-
